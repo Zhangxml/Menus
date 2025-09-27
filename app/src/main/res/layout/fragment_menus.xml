@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context=".ui.MenusFragment">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:background="#9587E4"
+        android:orientation="horizontal">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="50dp"
+            android:gravity="center_vertical"
+            android:paddingLeft="10dp"
+            android:text="今日菜单"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="50dp"
+            android:background="#9587E4"
+            android:gravity="center_vertical"
+            android:layout_alignParentRight="true"
+            android:paddingRight="10dp"
+            android:text="添加"/>
+
+    </RelativeLayout>
+
+    <!--  2 -->
+    <com.zpd.menu.tool.ScrollingViewHeaderLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <LinearLayout
+            app:isHeaderLayout="true"
+            android:layout_width="match_parent"
+            android:orientation="vertical"
+            android:layout_height="100dp">
+
+            <com.zpd.menu.widget.RandomView
+                android:layout_width="match_parent"
+                android:layout_height="100dp"
+                android:gravity="center"/>
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/scroll_layout"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="horizontal">
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/scroll_view"
+                android:layout_weight="1"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"/>
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/recycler_view"
+                app:isScrollingLayout="true"
+                android:layout_weight="3"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"/>
+
+        </LinearLayout>
+
+
+
+    </com.zpd.menu.tool.ScrollingViewHeaderLayout>
+    <!--  2 -->
+
+</LinearLayout>

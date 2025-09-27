@@ -1,0 +1,23 @@
+{
+  "foodInfo": {
+    "foodId": 0,
+    "name": "鸡蛋炒饭",
+    "urls": [
+      {
+        "imageUrl": "http://123.com"
+      }
+    ],
+    "step": [
+      {
+        "id": 0,
+        "title": "小馄饨",
+        "describe": "鲜肉小馄炖"
+      },
+      {
+        "id": 1,
+        "title": "小馄饨",
+        "describe": "鲜肉小馄炖"
+      }
+    ]
+  }
+}
