@@ -13,7 +13,7 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package com.zpd.menu.tool;
+package com.zpd.menu.widget;
 
 import static androidx.customview.widget.ViewDragHelper.INVALID_POINTER;
 
@@ -48,7 +48,6 @@ import androidx.core.view.NestedScrollingParentHelper;
 import androidx.core.view.ScrollingView;
 import androidx.core.view.ViewCompat;
 import androidx.core.widget.NestedScrollView;
-import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 import androidx.viewpager.widget.PagerAdapter;
 import androidx.viewpager.widget.ViewPager;
