@@ -63,8 +63,6 @@ public class MenusFragment extends Fragment {
         return view;
     }
 
-
-
     private void initView(View view) {
         foodView(view);
         contentView(view);

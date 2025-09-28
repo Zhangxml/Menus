@@ -1,6 +1,7 @@
 package com.zpd.menu
 
 import android.os.Bundle
+import android.view.WindowInsetsController
 import androidx.core.view.WindowInsetsCompat
 import com.zpd.menu.ui.BaseActivity
 import com.zpd.menu.ui.MenusFragment
@@ -21,6 +22,9 @@ class MenusActivity : BaseActivity() {
 
     fun hideSystembar(){
         var windowInsetsController = window.decorView.windowInsetsController
-        windowInsetsController?.hide(WindowInsetsCompat.Type.systemBars())
+        windowInsetsController?.hide(WindowInsetsCompat.Type.navigationBars())
+//        setSystemBarsAppearance(APPEARANCE_LIGHT_STATUS_BARS, APPEARANCE_LIGHT_STATUS_BARS) //状态栏设置为黑色
+//        setSystemBarsAppearance(0, APPEARANCE_LIGHT_STATUS_BARS) //状态栏设置成白色
+        windowInsetsController?.setSystemBarsAppearance(0,WindowInsetsController.APPEARANCE_LIGHT_STATUS_BARS)
     }
 }

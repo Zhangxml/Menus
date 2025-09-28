@@ -9,20 +9,21 @@
 
     <RelativeLayout
         android:layout_width="match_parent"
-        android:layout_height="50dp"
+        android:layout_height="100dp"
         android:background="#9587E4"
-        android:orientation="horizontal">
+        android:orientation="horizontal"
+        android:paddingTop="60dp">
 
         <TextView
             android:layout_width="wrap_content"
-            android:layout_height="50dp"
+            android:layout_height="30dp"
             android:gravity="center_vertical"
             android:paddingLeft="10dp"
             android:text="今日菜单"/>
 
         <TextView
             android:layout_width="wrap_content"
-            android:layout_height="50dp"
+            android:layout_height="30dp"
             android:background="#9587E4"
             android:gravity="center_vertical"
             android:layout_alignParentRight="true"
@@ -40,11 +41,12 @@
             app:isHeaderLayout="true"
             android:layout_width="match_parent"
             android:orientation="vertical"
-            android:layout_height="100dp">
+            android:layout_height="110dp">
 
             <com.zpd.menu.widget.RandomView
                 android:layout_width="match_parent"
                 android:layout_height="100dp"
+                android:layout_marginTop="10dp"
                 android:gravity="center"/>
 
         </LinearLayout>
