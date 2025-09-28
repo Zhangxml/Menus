@@ -18,7 +18,9 @@ import com.zpd.menu.R;
 import com.zpd.menu.adapter.ContentAdapter;
 import com.zpd.menu.adapter.FoodAdapter;
 import com.zpd.menu.data.MenusInfo;
+import com.zpd.menu.db.Classification;
 import com.zpd.menu.tool.MLog;
+import com.zpd.menu.widget.RandomView;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -32,8 +34,6 @@ public class MenusFragment extends Fragment {
     private RecyclerView mContentRecyclerView,mFoodRecyclerView;
     private FoodAdapter foodAdapter;
     private ContentAdapter contentAdapter;
-
-
 
     public static MenusFragment newInstance() {
         MenusFragment fragment = new MenusFragment();
@@ -63,10 +63,45 @@ public class MenusFragment extends Fragment {
         return view;
     }
 
+
+
+    @Override
+    public void onResume() {
+        super.onResume();
+        Log.e(TAG, "onResume: ");
+    }
+
+    @Override
+    public void onPause() {
+        super.onPause();
+        Log.e(TAG, "onPause: ");
+    }
+
+    @Override
+    public void onStop() {
+        super.onStop();
+        Log.e(TAG, "onStop: ");
+    }
+
     private void initView(View view) {
+        startToAdd(view);
+        clickRandomView(view);
         foodView(view);
         contentView(view);
 
+    }
+
+    private void clickRandomView(View view) {
+        view.findViewById(R.id.day_food).setOnClickListener((v)->{
+            RandomView randomView = view.findViewById(R.id.random_view);
+            randomView.refreshView();
+        });
+    }
+
+    private void startToAdd(View view) {
+        view.findViewById(R.id.start_to_add).setOnClickListener((v)->{
+            activity.goEdit();
+        });
     }
 
     private void foodView(View view) {
@@ -84,13 +119,16 @@ public class MenusFragment extends Fragment {
     }
 
     private void addFoodData() {
+        List<Classification> all = Classification.findAll();
+        if (all == null) return;
+
         List<MenusInfo> menusInfoList = new ArrayList<>();
 
-        for (int i = 0; i < 30; i++) {
+        for (int i = 0; i < all.size(); i++) {
             MenusInfo menusInfo = new MenusInfo();
             MenusInfo.FoodInfoBean foodInfoBean = new MenusInfo.FoodInfoBean();
             foodInfoBean.setFoodId(i);
-            foodInfoBean.setName("鸡蛋炒蛋 - " + i);
+            foodInfoBean.setName(all.get(i).cName);
             menusInfo.setFoodInfo(foodInfoBean);
             menusInfoList.add(menusInfo);
         }

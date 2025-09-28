@@ -15,6 +15,7 @@
         android:paddingTop="60dp">
 
         <TextView
+            android:id="@+id/day_food"
             android:layout_width="wrap_content"
             android:layout_height="30dp"
             android:gravity="center_vertical"
@@ -22,6 +23,7 @@
             android:text="今日菜单"/>
 
         <TextView
+            android:id="@+id/start_to_add"
             android:layout_width="wrap_content"
             android:layout_height="30dp"
             android:background="#9587E4"
@@ -44,6 +46,7 @@
             android:layout_height="110dp">
 
             <com.zpd.menu.widget.RandomView
+                android:id="@+id/random_view"
                 android:layout_width="match_parent"
                 android:layout_height="100dp"
                 android:layout_marginTop="10dp"
