@@ -1,11 +1,13 @@
 package com.zpd.menu.db;
 
+import com.chad.library.adapter.base.entity.MultiItemEntity;
+
 import org.litepal.LitePal;
 import org.litepal.crud.LitePalSupport;
 
 import java.util.List;
 
-public class FoodInfo extends LitePalSupport {
+public class FoodInfo extends LitePalSupport implements MultiItemEntity {
 
     public long fId;
 
@@ -34,5 +36,8 @@ public class FoodInfo extends LitePalSupport {
         }else return null;
     }
 
-
+    @Override
+    public int getItemType() {
+        return fId == pId ? 0 : 1;
+    }
 }

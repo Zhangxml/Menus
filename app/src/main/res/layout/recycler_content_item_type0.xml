@@ -1,13 +1,14 @@
 <?xml version="1.0" encoding="utf-8"?>
 <FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
-    android:layout_height="61dp">
+    android:background="#AFD8EF"
+    android:layout_height="41dp">
 
     <TextView
         android:id="@+id/title"
         android:layout_width="match_parent"
-        android:layout_height="60dp"
-        android:text="ces"
+        android:layout_height="40dp"
+        android:text=""
         android:gravity="center_vertical"
         android:layout_gravity="center_vertical"/>
 

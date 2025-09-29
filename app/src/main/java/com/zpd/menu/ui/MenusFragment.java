@@ -139,7 +139,7 @@ public class MenusFragment extends Fragment {
         LinearLayoutManager linearLayoutManager
                 = new LinearLayoutManager(activity, LinearLayoutManager.VERTICAL,false);
         mContentRecyclerView.setLayoutManager(linearLayoutManager);
-        contentAdapter = new ContentAdapter(null);
+        contentAdapter = new ContentAdapter();
         mContentRecyclerView.setAdapter(contentAdapter);
         // 点击
         addContentRecyclerViewClick();

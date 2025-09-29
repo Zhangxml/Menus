@@ -33,7 +33,7 @@ public class EditFragment extends Fragment {
 
     private MenusActivity activity;
 
-    private EditText cFoodClassification = null;
+    private EditText cFoodClassification ,cFoodName,cFoodMethod;
 
     public EditFragment() {}
 
@@ -72,6 +72,10 @@ public class EditFragment extends Fragment {
         view.findViewById(R.id.edit_save).setOnClickListener(this::onClick);
         // 食物分类
         cFoodClassification = view.findViewById(R.id.c_food_classification);
+        // 名称
+        cFoodName = view.findViewById(R.id.c_food_name);
+        // 制作方法
+        cFoodMethod = view.findViewById(R.id.c_food_method);
     }
 
     private void onClick(View view) {
@@ -87,7 +91,12 @@ public class EditFragment extends Fragment {
     * */
     private void save(){
         String cFoodClassification_ = Util.trim(cFoodClassification.getText().toString());
+        String cFoodName_ = Util.trim(cFoodName.getText().toString());
+        String cFoodMethod_ = Util.trim(cFoodMethod.getText().toString());
+
         if (TextUtils.isEmpty(cFoodClassification_))return;
+        if (TextUtils.isEmpty(cFoodName_))return;
+        if (TextUtils.isEmpty(cFoodMethod_))return;
 
         // 一级
         Classification classificationOld = Classification.findOneByName(cFoodClassification_);
@@ -98,15 +107,23 @@ public class EditFragment extends Fragment {
             classification.cId = SystemClock.elapsedRealtimeNanos();
             classification.cName = cFoodClassification_;
             classification.save();
+            //并且在二级数据库中同样添加一个，方便列表排序
+            FoodInfo foodInfo_ = new FoodInfo();
+            foodInfo_.fId = classification.cId;
+            foodInfo_.pId = classification.cId;
+            foodInfo_.fName = classification.cName;
+            foodInfo_.save();
 
-        }else classification = classificationOld;
+        }else {
+            classification = classificationOld;
+        }
         // 二级
         FoodInfo foodInfo = new FoodInfo();
         foodInfo.fId = SystemClock.elapsedRealtimeNanos();
         foodInfo.pId = classification.cId;
-        foodInfo.fName = classification.cId + "-"+foodInfo.fId;
+        foodInfo.fName = cFoodName_;
         foodInfo.url = "http://";
-        foodInfo.method = "";
+        foodInfo.method = cFoodMethod_;
         foodInfo.save();
 
         activity.getSupportFragmentManager().popBackStack();
