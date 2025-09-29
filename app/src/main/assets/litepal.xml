@@ -21,7 +21,6 @@
     <list>
         <mapping class="com.zpd.menu.db.Classification" />
         <mapping class="com.zpd.menu.db.FoodInfo" />
-        <mapping class="com.zpd.menu.db.CookMethod" />
     </list>
 
     <!--

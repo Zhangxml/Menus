@@ -7,6 +7,7 @@ import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
 
 import android.os.SystemClock;
+import android.text.TextUtils;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -16,8 +17,12 @@ import android.widget.EditText;
 import com.zpd.menu.MenusActivity;
 import com.zpd.menu.R;
 import com.zpd.menu.db.Classification;
+import com.zpd.menu.db.FoodInfo;
+import com.zpd.menu.tool.Util;
 
+import java.util.ArrayList;
 import java.util.Date;
+import java.util.List;
 
 /**
  * 增加数据
@@ -77,11 +82,33 @@ public class EditFragment extends Fragment {
         }
     }
 
+    /*
+    * 创建数据
+    * */
     private void save(){
-        Classification classification = new Classification();
-        classification.cId = SystemClock.elapsedRealtime();
-        classification.cName = " "+ cFoodClassification.getText().toString();
-        classification.save();
+        String cFoodClassification_ = Util.trim(cFoodClassification.getText().toString());
+        if (TextUtils.isEmpty(cFoodClassification_))return;
+
+        // 一级
+        Classification classificationOld = Classification.findOneByName(cFoodClassification_);
+
+        Classification classification =null;
+        if (classificationOld == null){ // 若没有，则需要新创建
+            classification = new Classification();
+            classification.cId = SystemClock.elapsedRealtimeNanos();
+            classification.cName = cFoodClassification_;
+            classification.save();
+
+        }else classification = classificationOld;
+        // 二级
+        FoodInfo foodInfo = new FoodInfo();
+        foodInfo.fId = SystemClock.elapsedRealtimeNanos();
+        foodInfo.pId = classification.cId;
+        foodInfo.fName = classification.cId + "-"+foodInfo.fId;
+        foodInfo.url = "http://";
+        foodInfo.method = "";
+        foodInfo.save();
+
         activity.getSupportFragmentManager().popBackStack();
     }
 

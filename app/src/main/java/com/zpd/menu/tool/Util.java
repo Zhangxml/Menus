@@ -3,6 +3,7 @@ package com.zpd.menu.tool;
 import android.content.Context;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
+import android.text.TextUtils;
 import android.util.Base64;
 
 import java.io.ByteArrayOutputStream;
@@ -42,6 +43,12 @@ public class Util {
         return result;
     }
 
-
-
+    /*
+     * 去空格
+     * */
+    public static String trim(String info){
+        if (!TextUtils.isEmpty(info)){
+            return info.replace(" ","");
+        }else return info;
+    }
 }

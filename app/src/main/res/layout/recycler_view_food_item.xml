@@ -13,8 +13,10 @@
 
     <View
         android:layout_width="match_parent"
-        android:layout_height="1dp"
+        android:layout_height="1px"
+        android:layout_marginLeft="10dp"
+        android:layout_marginRight="5dp"
         android:layout_gravity="bottom"
-        android:background="#99000000"/>
+        android:background="#505050"/>
 
 </FrameLayout>

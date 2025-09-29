@@ -11,20 +11,21 @@ import com.chad.library.adapter.base.BaseQuickAdapter;
 import com.chad.library.adapter.base.viewholder.BaseViewHolder;
 import com.zpd.menu.R;
 import com.zpd.menu.data.MenusInfo;
+import com.zpd.menu.db.FoodInfo;
 
 import java.util.List;
 
-public class ContentAdapter extends BaseQuickAdapter<MenusInfo, ContentAdapter.ViewHolder> {
+public class ContentAdapter extends BaseQuickAdapter<FoodInfo, ContentAdapter.ViewHolder> {
 
     private String TAG = ContentAdapter.class.getSimpleName();
 
-    public ContentAdapter(@Nullable List<MenusInfo> data) {
+    public ContentAdapter(@Nullable List<FoodInfo> data) {
         super(R.layout.recycler_view_content_item, data);
     }
 
     @Override
-    protected void convert(@NonNull ViewHolder baseViewHolder, MenusInfo menusInfo) {
-        baseViewHolder.mTextView.setText(" "+ menusInfo.getFoodInfo().getName());
+    protected void convert(@NonNull ViewHolder baseViewHolder, FoodInfo foodInfo) {
+        baseViewHolder.mTextView.setText(" "+ foodInfo.fName);
         Log.e(TAG, "convert: " + baseViewHolder.getLayoutPosition());
     }
 

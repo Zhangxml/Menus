@@ -59,6 +59,49 @@
         </FrameLayout>
 
 
+        <FrameLayout
+            android:layout_width="match_parent"
+            android:layout_height="50dp">
+
+            <TextView
+                android:layout_width="100dp"
+                android:layout_height="match_parent"
+                android:text="名        称："
+                android:paddingLeft="10dp"
+                android:gravity="center_vertical"/>
+
+            <EditText
+                android:id="@+id/c_food_name"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginLeft="100dp"/>
+
+        </FrameLayout>
+
+
+        <FrameLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <TextView
+                android:layout_width="100dp"
+                android:layout_height="50dp"
+                android:text="制作方法："
+                android:paddingLeft="10dp"
+                android:gravity="center_vertical"/>
+
+            <EditText
+                android:id="@+id/c_food_method"
+                android:maxLines="10"
+                android:minHeight="50dp"
+                android:lineSpacingExtra="5dp"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginLeft="100dp"/>
+
+        </FrameLayout>
+
+
 
     </LinearLayout>
 

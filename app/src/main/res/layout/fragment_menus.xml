@@ -65,6 +65,11 @@
                 android:layout_weight="1"
                 android:layout_width="0dp"
                 android:layout_height="match_parent"/>
+            <View
+                android:layout_width="1px"
+                android:layout_height="match_parent"
+                android:layout_marginRight="2dp"
+                android:background="#505050"/>
 
             <androidx.recyclerview.widget.RecyclerView
                 android:id="@+id/recycler_view"

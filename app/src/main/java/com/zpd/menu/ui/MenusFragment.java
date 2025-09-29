@@ -19,6 +19,7 @@ import com.zpd.menu.adapter.ContentAdapter;
 import com.zpd.menu.adapter.FoodAdapter;
 import com.zpd.menu.data.MenusInfo;
 import com.zpd.menu.db.Classification;
+import com.zpd.menu.db.FoodInfo;
 import com.zpd.menu.tool.MLog;
 import com.zpd.menu.widget.RandomView;
 
@@ -121,19 +122,7 @@ public class MenusFragment extends Fragment {
     private void addFoodData() {
         List<Classification> all = Classification.findAll();
         if (all == null) return;
-
-        List<MenusInfo> menusInfoList = new ArrayList<>();
-
-        for (int i = 0; i < all.size(); i++) {
-            MenusInfo menusInfo = new MenusInfo();
-            MenusInfo.FoodInfoBean foodInfoBean = new MenusInfo.FoodInfoBean();
-            foodInfoBean.setFoodId(i);
-            foodInfoBean.setName(all.get(i).cName);
-            menusInfo.setFoodInfo(foodInfoBean);
-            menusInfoList.add(menusInfo);
-        }
-
-        foodAdapter.setList(menusInfoList);
+        foodAdapter.setList(all);
     }
 
     private void addFoodRecyclerViewClick() {
@@ -159,18 +148,9 @@ public class MenusFragment extends Fragment {
     }
 
     private void addContentData(){
-        List<MenusInfo> menusInfoList = new ArrayList<>();
-
-        for (int i = 0; i < 30; i++) {
-            MenusInfo menusInfo = new MenusInfo();
-            MenusInfo.FoodInfoBean foodInfoBean = new MenusInfo.FoodInfoBean();
-            foodInfoBean.setFoodId(i);
-            foodInfoBean.setName("做法 - " + i);
-            menusInfo.setFoodInfo(foodInfoBean);
-            menusInfoList.add(menusInfo);
-        }
-
-        contentAdapter.setList(menusInfoList);
+        List<FoodInfo> all = FoodInfo.findAll();
+        if (all == null) return;
+        contentAdapter.setList(all);
     }
 
 

@@ -76,7 +76,7 @@ public class RandomView extends FrameLayout {
         List<Classification> all = new ArrayList<>();
         for (int i = 0; i < listRandom.size(); i++) {
             long id = listRandom.get(i);
-            Classification one = Classification.findOne(id);
+            Classification one = Classification.findOneById(id);
             if (one !=null) all.add(one);
         }
         LoopAdapter adapter = (LoopAdapter) loopView.getAdapter();
